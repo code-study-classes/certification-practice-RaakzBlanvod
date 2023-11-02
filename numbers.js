@@ -40,9 +40,6 @@ function getHundredsDigit(number) {
 }
 
 function getFullHours(seconds) {
-  if (seconds !== Number.isInteger(seconds) || seconds < 0) {
-    return '';
-  }
   return Math.floor(seconds / 3600);
 }
 
