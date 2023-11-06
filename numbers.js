@@ -25,11 +25,10 @@ function calculateDigitSum(twoDigitNumber) {
 }
 
 function swapHundredsAndTens(twoDigitNumber) {
-  const hundreds = Math.floor(twoDigitNumber / 100) * 100;
-  const tens = Math.floor((twoDigitNumber % 100) / 10) * 10;
-  const ones = twoDigitNumber % 10;
-  const swappedNumber = tens + hundreds + ones;
-  return swappedNumber;
+  const hundreds = Math.floor(twoDigitNumber / 100);
+  const tens = Math.floor((twoDigitNumber % 100) / 10);
+  const units = twoDigitNumber % 10;
+  return hundreds * 10 + tens * 100 + units;
 }
 
 function getHundredsDigit(number) {
@@ -44,8 +43,14 @@ function getFullHours(seconds) {
 }
 
 function getDayOfWeek(dayOfYear) {
-  const dayOfWeek = (dayOfYear - 1) % 7;
-  return dayOfWeek;
+  let days = 0;
+  let count = 0;
+  while (days < dayOfYear) {
+    days += 1;
+    count += 1;
+    if (count === 7) count = 0;
+  }
+  return count;
 }
 
 function countSquares(A, B, C) {
